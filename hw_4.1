@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+bool fun(double R, double r, double &rslt) {
+	double pi = acos(-1), eps = 1.e-8;
+	rslt = pi * R * R - pi * r * r;
+	if (!(rslt > 0 + eps))
+	return 0;
+}
+
+int main() {
+	double R, r, rslt;
+	cin >> R >> r;	
+	cout << (fun(R, r, rslt) ? "true" : "false");
+}
