@@ -1,0 +1,53 @@
+// Лыжи
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int const LENGTH = 200;
+	int N, k, len, good = 0;
+	cin >> N;
+	cin >> k;
+
+	if (k <= LENGTH) {  
+		int k1 = k / 2;
+		int* a = new int[k + 1]{};
+		for (int i = 0; i < N; ++i)
+		{
+			cin >> len;
+			(*(a + len))++;
+		}
+
+		if (!(k % 2)) {
+			good = a[k1] / 2;
+			for (int i = 1; i <= k1; ++i) 
+				good += a[k1 - i] > a[k1 + i] ? a[k1 + i] : a[k1 - i];
+		}
+		else {
+			for (int i = 0; i <= k1; ++i)
+				good += a[k1 - i] > a[k1 + i + 1] ? a[k1 + i + 1] : a[k1 - i];
+
+			delete[]a;
+		}
+	}
+	else {
+
+		int* a = new int[N] {};
+		for (int i = 0; i < N; ++i)
+			cin >> a[i];
+
+		for (int i = 0; i < N - 1; ++i)
+			for (int j = i + 1; j < N; ++j)
+				if (a[i] + a[j] == k) {
+					++good;
+					a[j] = -1;
+				}
+		delete[]a;
+	}
+
+	cout << good;
+}
+
+
+
