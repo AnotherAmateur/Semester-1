@@ -1,0 +1,39 @@
+// Создать массив, в начале которого идут эл. второго данного массива, после - первого
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int n, m;
+	cin >> n;
+	if (n < 1) {
+		cout << "ERROR.";
+		return -1;
+	}
+	int* a = new int[n];
+	for (int i = 0; i < n; ++i) {
+		cin >> *(a + i);
+	}
+
+	cin >> m;
+	if (m < 1) {
+		cout << "ERROR.";
+		return -1;
+	}
+	int* b = new int[m+n];
+	for (int i = 0; i < m; ++i) {
+		cin >> *(b + i);
+	}
+
+	for (int i = m; i < n + m; ++i)
+		*(b + i) = *(a + i - m);
+
+	for (int i = 0; i < n+m; ++i)
+		cout << *(b + i) << " ";
+	delete[]a;
+	delete[]b;
+}
+
+
+
