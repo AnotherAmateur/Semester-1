@@ -1,0 +1,33 @@
+
+//Вывести элементы побочной диагонали квадратной матрицы
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    const int N = 100;
+    int digits[N][N];
+
+    int n;
+    cin >> n;
+    bool soo = false;
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < n; ++j)
+        {
+            cin >> digits[i][j];
+            soo = true;
+        }
+
+    if (soo)
+    {
+        cout << "Elements: ";
+        cout << digits[0][n-1];
+        for (int i = 1; i < n; ++i)
+        {
+            cout << ", " << digits[i][n - i - 1];
+        }
+        cout << '.';
+    }
+    else cout << "none";
+}
