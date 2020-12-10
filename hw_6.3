@@ -1,0 +1,30 @@
+
+//Подсчитать количество отрицательных элементов в двумерном статическом массиве
+
+#include <iostream>
+
+using namespace std;
+int main()
+{
+    const int N = 100;
+    int digits[N][N];
+    int n, m;
+
+    cin >> n >> m;
+    int K = 0;
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+        {
+            cin >> digits[i][j];
+            if (digits[i][j] < 0)
+            {
+                ++K;
+            }
+        }
+
+    if (K)
+    {
+        cout << "There is (are) " << K << " elemet(s)";        
+    }
+    else cout << "none";
+}
